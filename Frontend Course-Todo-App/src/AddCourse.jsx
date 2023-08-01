@@ -1,9 +1,10 @@
-import {TextField} from "@mui/material";
+import {Card, TextField} from "@mui/material";
 import Button from "@mui/material/Button";
 
 function AddCourse(){
     return(
         <div>
+            <Card variant="outlined" style={{width: 400,padding: 20}}>
             <TextField
                 onChange={()=>{
                 }}
@@ -16,6 +17,7 @@ function AddCourse(){
                 onClick={()=>{
                 }}
                 variant="contained">Add Course</Button>
+            </Card>
         </div>
     )
  }
