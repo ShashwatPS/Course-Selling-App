@@ -7,8 +7,8 @@ function Appbar(){
 
     useEffect(()=>{
         function callback2(data){
-            if (data.username){
-                setUserEmail(data.username);}
+            if (data.username)
+                setUserEmail(data.username)
         }
 
         function callback1(res){
@@ -49,6 +49,7 @@ function Appbar(){
                                 variant="filled"
                                 onClick={()=>{
                                     localStorage.setItem("token",null);
+                                    window.location= "/"
                                 }}
                             >Logout</Button>
                         </div>
