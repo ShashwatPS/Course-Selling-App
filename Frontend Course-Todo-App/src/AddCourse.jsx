@@ -23,7 +23,7 @@ function AddCourse(){
             <Button
                 onClick={()=>{
                     function callback2(data){
-                        localStorage.setItem("token",data.token);
+                        alert("Course Added!");
                     }
 
                     function callback1(res){
