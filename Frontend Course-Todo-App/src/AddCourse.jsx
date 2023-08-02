@@ -40,7 +40,7 @@ function AddCourse(){
                         }),
                         headers: {
                             "Content-type": "application/json",
-                            "Authorization": "Bearer "+ localStorage.getItem("token")
+                            "Authorization": "Bearer "+ localStorage.getItem("token"),
                         }
                     }).then(callback1)
                 }}
