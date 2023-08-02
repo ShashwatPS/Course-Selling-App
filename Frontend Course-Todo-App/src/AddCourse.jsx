@@ -5,6 +5,7 @@ import {useState} from "react";
 function AddCourse(){
     const[title,setTitle] = useState("");
     const[description,setdescription] = useState("");
+    const[image,setImage]= useState("");
 
     return(
         <div>
@@ -20,6 +21,11 @@ function AddCourse(){
                     setdescription(e.target.value);
                 }}
                 id="outlined-basic" label="Description" variant="outlined" fullWidth={true}/>
+                <TextField
+                    onChange={(e)=>{
+                        setImage(e.target.value);
+                    }}
+                    id="outlined-basic" label="Image Link" variant="outlined" fullWidth={true}/>
             <Button
                 onClick={()=>{
                     function callback2(data){
@@ -35,7 +41,7 @@ function AddCourse(){
                         body: JSON.stringify({
                             title: title,
                             description: description,
-                            imageLink: "",
+                            imageLink: image,
                             published: true
                         }),
                         headers: {

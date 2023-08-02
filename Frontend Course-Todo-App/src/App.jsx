@@ -7,8 +7,8 @@ import Courses from "./Courses.jsx";
 function App() {
   return (
     <>
-        <Appbar></Appbar>
         <Router>
+            <Appbar></Appbar>
             <Routes>
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/signin" element={<SignIn />} />

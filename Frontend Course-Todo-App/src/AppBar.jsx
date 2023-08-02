@@ -39,7 +39,7 @@ function Appbar(){
                             }}>Coursera</Typography>
                         </div>
                         <div>
-                            {userEmail}
+                            <Typography variant={"h6"}>{userEmail}</Typography>
                         </div>
                         <div>
                             <Button
