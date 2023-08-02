@@ -3,12 +3,12 @@ import Button from "@mui/material/Button";
 import {useEffect, useState} from "react";
 
 function Appbar(){
-    const[userEmail,setuserEmail]=useState(null);
+    const[userEmail,setUserEmail]=useState(null);
 
     useEffect(()=>{
         function callback2(data){
-            if (data.username)
-                setuserEmail(data.username);
+            if (data.username){
+                setUserEmail(data.username);}
         }
 
         function callback1(res){
@@ -18,7 +18,7 @@ function Appbar(){
         fetch("http://localhost:3000/admin/me",{
             method: "GET",
             headers: {
-                "Content-type": "application/json"
+                "Authorization": "Bearer "+localStorage.getItem("token")
             }
         }).then(callback1)
     },[])
