@@ -4,6 +4,7 @@ import SignIn from "./Signin.jsx";
 import Appbar from "./AppBar.jsx";
 import AddCourse from "./AddCourse.jsx";
 import Courses from "./Courses.jsx";
+import Course from "./Course.jsx";
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/addcourse" element={<AddCourse />}/>
                 <Route path="/courses" element={<Courses />}/>
+                <Route path="/course/:courseId" element={<Course/>}/>
             </Routes>
         </Router>
     </>
