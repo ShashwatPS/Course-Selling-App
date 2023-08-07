@@ -39,7 +39,7 @@ function Signup(){
                         sm={4}
                         md={7}
                         sx={{
-                            backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
+                            backgroundImage: 'url(https://about.coursera.org/static/whiteCoursera-23ec484f7091914430ce19b07d09aedf.svg)',
                             backgroundRepeat: 'no-repeat',
                             backgroundColor: (t) =>
                                 t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
