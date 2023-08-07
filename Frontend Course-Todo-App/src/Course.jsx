@@ -78,7 +78,7 @@ function UpdateCard(props){
                                 alert("Course Updated!");
                                 let updatedCourses = [];
                                 for(let i=0;i<props.courses.length;i++){
-                                    if (courses[i].id == course.id){ 
+                                    if (props.courses[i].id == course.id){
                                         updatedCourses.push({
                                             id: course.id,
                                             title: title,
@@ -87,7 +87,7 @@ function UpdateCard(props){
                                         })
                                     }
                                     else{
-                                        updatedCourses.push(courses[i]);
+                                        updatedCourses.push(props.courses[i]);
                                 }
                                     props.setCourses(updatedCourses);
                             }}
