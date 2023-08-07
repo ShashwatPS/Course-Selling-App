@@ -1,11 +1,10 @@
 import Button from '@mui/material/Button';
 import {
     Avatar,
-    Box,
-    Container, createTheme,
+    Box, createTheme,
     CssBaseline,
     Grid,
-    Link,
+    Link, Paper,
     TextField, ThemeProvider,
     Typography
 } from "@mui/material";
@@ -32,93 +31,112 @@ function Signup(){
     return(
         <div>
             <ThemeProvider theme={defaultTheme}>
-                <Container component="main" maxWidth="xs">
+                <Grid container component="main" sx={{ height: '100vh' }}>
                     <CssBaseline />
-                    <Box
+                    <Grid
+                        item
+                        xs={false}
+                        sm={4}
+                        md={7}
                         sx={{
-                            marginTop: 8,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
+                            backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundColor: (t) =>
+                                t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
                         }}
-                    >
-                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                            {/*<LockOutlinedIcon />*/}
-                        </Avatar>
-                        <Typography component="h1" variant="h5">
-                            Sign in
-                        </Typography>
-                        <Box component="form" noValidate sx={{ mt: 1 }}>
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="email"
-                                autoFocus
-                                onChange={(e)=>{
-                                    setEmail(e.target.value);}}
-                            />
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                name="password"
-                                label="Password"
-                                type="password"
-                                id="password"
-                                autoComplete="current-password"
-                               onChange={(e)=>{
-                                   setPassword(e.target.value);
-                               }}
-                            />
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
-                                onClick={()=>{
-                                    function callback2(data){
-                                        localStorage.setItem("token",data.token);
-                                        window.location= "/"
-                                    }
-
-                                    function callback1(res){
-                                        res.json().then(callback2);
-                                    }
-
-                                    fetch("http://localhost:3000/admin/signup",{
-                                        method: "POST",
-                                        body: JSON.stringify({
-                                            username: email,
-                                            password
-                                        }),
-                                        headers: {
-                                            "Content-type": "application/json"
+                    />
+                    <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                        <Box
+                            sx={{
+                                my: 8,
+                                mx: 4,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                            }}
+                        >
+                            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                                {/*<LockOutlinedIcon />*/}
+                            </Avatar>
+                            <Typography component="h1" variant="h5">
+                                Sign Up
+                            </Typography>
+                            <Box component="form" noValidate  sx={{ mt: 1 }}>
+                                <TextField
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="email"
+                                    label="Email Address"
+                                    name="email"
+                                    autoComplete="email"
+                                    autoFocus
+                                    onChange={(e)=>{
+                                        setEmail(e.target.value);
+                                    }}
+                                />
+                                <TextField
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    name="password"
+                                    label="Password"
+                                    type="password"
+                                    id="password"
+                                    autoComplete="current-password"
+                                    onChange={(e)=>{
+                                        setPassword(e.target.value);
+                                    }}
+                                />
+                                <Button
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    sx={{ mt: 3, mb: 2 }}
+                                    onClick={()=>{
+                                        function callback2(data){
+                                            localStorage.setItem("token",data.token);
+                                            window.location= "/courses"
                                         }
-                                    }).then(callback1)
-                                }}
-                            >
-                                Sign In
-                            </Button>
-                            <Grid container>
-                                <Grid item xs>
-                                    <Link href="#" variant="body2">
-                                        Forgot password?
-                                    </Link>
+
+                                        function callback1(res){
+                                            res.json().then(callback2);
+                                        }
+
+                                        fetch("http://localhost:3000/admin/signup",{
+                                            method: "POST",
+                                            body: JSON.stringify({
+                                                username: email,
+                                                password
+                                            }),
+                                            headers: {
+                                                "Content-type": "application/json"
+                                            }
+                                        }).then(callback1)}}
+                                >
+                                    Sign Up
+                                </Button>
+                                <Grid container>
+                                    <Grid item xs>
+                                        <Link href="#" variant="body2">
+                                            Forgot password?
+                                        </Link>
+                                    </Grid>
+                                    <Grid item>
+                                        <Link href="#" variant="body2" onClick={()=>{
+                                            window.location="/signin";
+                                        }}>
+                                            {"Already have an account ? SignIn"}
+                                        </Link>
+                                    </Grid>
                                 </Grid>
-                                <Grid item>
-                                    <Link href="#" variant="body2">
-                                        {"Already have a account ? SignIn"}
-                                    </Link>
-                                </Grid>
-                            </Grid>
+                                <Copyright sx={{ mt: 5 }} />
+                            </Box>
                         </Box>
-                    </Box>
-                    <Copyright sx={{ mt: 8, mb: 4 }} />
-                </Container>
+                    </Grid>
+                </Grid>
             </ThemeProvider>
     </div>
     )
