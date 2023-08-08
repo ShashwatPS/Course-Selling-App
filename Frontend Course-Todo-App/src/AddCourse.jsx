@@ -19,8 +19,6 @@ function Copyright(props) {
     );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
-
 const defaultTheme = createTheme();
 
 function AddCourse(){
@@ -40,8 +38,8 @@ function AddCourse(){
                         alignItems: 'center',
                     }}
                 >
-                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                        {/*<LockOutlinedIcon />*/}
+                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}
+                            src={"https://media.licdn.com/dms/image/D4D03AQEV_117eQkZLQ/profile-displayphoto-shrink_800_800/0/1686557768279?e=2147483647&v=beta&t=1huYlCYn91aB2b19p9kcT1DkudHGIvk7cHYo6FErxBg"}>
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Add a Course
