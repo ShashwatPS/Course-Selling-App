@@ -36,11 +36,44 @@ function Appbar(){
                         <div>
                             <Typography variant={"h6"} style={{
                                 paddingLeft: 5
-                            }}>Coursera</Typography>
+                            }}
+                            onClick={()=>{
+                                window.location="/";
+                            }}
+                            >Coursera</Typography>
                         </div>
-                        <div>
-                            <Typography variant={"h6"}>{userEmail}</Typography>
+                        <div style={{
+                            display: "flex",
+                        }}>
+                        <div style={{
+                            paddingRight: 15,
+                        }}>
+                            <Typography variant={"subtitle1"} style={{
+                                paddingTop: 5,
+                            }}>{userEmail}</Typography>
                         </div>
+                            <div>
+                                <Button
+                                    color="secondary"
+                                    disabled={false}
+                                    size="medium"
+                                    variant="filled"
+                                    onClick={()=>{
+                                        window.location= "/courses"
+                                    }}
+                                >SHOW COURSES</Button>
+                            </div>
+                            <div>
+                                <Button
+                                    color="secondary"
+                                    disabled={false}
+                                    size="medium"
+                                    variant="filled"
+                                    onClick={()=>{
+                                        window.location= "/addcourse"
+                                    }}
+                                >ADD A COURSE</Button>
+                            </div>
                         <div>
                             <Button
                                 color="secondary"
@@ -52,6 +85,7 @@ function Appbar(){
                                     window.location= "/"
                                 }}
                             >Logout</Button>
+                        </div>
                         </div>
                     </div>
                 </AppBar>

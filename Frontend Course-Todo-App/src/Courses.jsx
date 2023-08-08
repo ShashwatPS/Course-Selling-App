@@ -27,7 +27,7 @@ function Courses(){
             flexWrap: "wrap"
         }}>
             {courses.map(course=>{
-                return <Course course={course}/>
+                return <Course course={course} setCourses={setCourses}/>
             })}
         </div>)
 }
@@ -64,6 +64,19 @@ function Course(props){
                 </Button>
                 <Button size="small" color="primary" onClick={()=>{
                     function callback2(data) {
+                        function callback2(data){
+                            props.setCourses(data.courses)
+                        }
+                        function callback1(res){
+                            res.json().then(callback2)
+                        }
+
+                        fetch("http://localhost:3000/admin/courses",{
+                            method: "GET",
+                            headers: {
+                                "Authorization": "Bearer "+localStorage.getItem("token")
+                            }
+                        }).then(callback1)
                         console.log(data);
                     }
 
