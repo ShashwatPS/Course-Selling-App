@@ -64,7 +64,6 @@ function Course(props){
                 </Button>
                 <Button size="small" color="primary" onClick={()=>{
                     function callback2(data) {
-
                         console.log(data);
                     }
 
@@ -72,7 +71,7 @@ function Course(props){
                         res.json().then(callback2);
                     }
 
-                    fetch(`http://localhost:3000/admin/courses/${props.course.id}`, {
+                    fetch(`http://localhost:3000/admins/courses/${props.course.id}`, {
                         method: "DELETE",
                         headers: {
                             "Content-type": "application/json",
