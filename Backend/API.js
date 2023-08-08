@@ -82,6 +82,18 @@ app.post('/admin/courses', authenticateJwt, (req, res) => {
   res.json({ message: 'Course created successfully', courseId: course.id });
 });
 
+app.delete('/admins/courses/:courseId',authenticateJwt,(req,res)=>{
+  const courseId = parseInt(req.params.courseId);
+  const courseIndex = COURSES.findIndex(course => course.id === courseId);
+
+  if (courseIndex !== -1) {
+    COURSES.splice(courseIndex, 1);
+    fs.writeFileSync('courses.json', JSON.stringify(COURSES));
+    res.json({ message: 'Course deleted successfully' });
+  } else {
+    res.status(404).json({ message: 'Course not found' });
+  }
+});
 app.put('/admin/courses/:courseId', authenticateJwt, (req, res) => {
   const course = COURSES.find(c => c.id === parseInt(req.params.courseId));
   if (course) {
