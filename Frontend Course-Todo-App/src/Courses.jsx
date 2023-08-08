@@ -62,7 +62,24 @@ function Course(props){
                 }}>
                     Update
                 </Button>
-                <Button size="small" color="primary">
+                <Button size="small" color="primary" onClick={()=>{
+                    function callback2(data) {
+
+                        console.log(data);
+                    }
+
+                    function callback1(res) {
+                        res.json().then(callback2);
+                    }
+
+                    fetch(`http://localhost:3000/admin/courses/${props.course.id}`, {
+                        method: "DELETE",
+                        headers: {
+                            "Content-type": "application/json",
+                            "Authorization": "Bearer " + localStorage.getItem("token")
+                        }
+                    }).then(callback1);
+                }}>
                     Delete
                 </Button>
             </CardActions>
