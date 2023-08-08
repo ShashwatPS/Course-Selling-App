@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
-import {Card, Typography} from "@mui/material";
+import {Card, CardActionArea, CardActions, CardContent, CardMedia, Typography} from "@mui/material";
+import Button from "@mui/material/Button";
 
 function Courses(){
     const [courses, setCourses]=useState([]);
@@ -25,7 +26,6 @@ function Courses(){
             display: "flex",
             flexWrap: "wrap"
         }}>
-            Courses
             {courses.map(course=>{
                 return <Course course={course}/>
             })}
@@ -35,13 +35,37 @@ function Courses(){
 function Course(props){
     return (
         <Card style={{
-            margin: 10,
+            margin: 25,
             width: 300,
-            minHeight: 200
+            minHeight: 200,
+            marginTop: 45
         }}>
-            <Typography textAlign={"center"} variant={"h5"}>{props.course.title}</Typography>
-            <Typography textAlign={"center"} variant={"subtitle1"}>{props.course.description}</Typography>
-            <img src={props.course.imageLink} style={{width:300}} alt={"ImageLink"}></img>
+            <CardActionArea>
+                <CardMedia
+                    component="img"
+                    height="200"
+                    image={props.course.imageLink}
+                    alt="Course Image"
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                        {props.course.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        {props.course.description}
+                    </Typography>
+                </CardContent>
+            </CardActionArea>
+            <CardActions>
+                <Button size="small" color="primary" onClick={()=>{
+                    window.location=`/course/${props.course.id}`;
+                }}>
+                    Update
+                </Button>
+                <Button size="small" color="primary">
+                    Delete
+                </Button>
+            </CardActions>
         </Card>
     )
 }
