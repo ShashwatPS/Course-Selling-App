@@ -1,11 +1,9 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {
-    Avatar,
     Box,
     Card,
     CardActionArea,
-    CardActions,
     CardContent,
     CardMedia,
     Container, createTheme, CssBaseline, Grid, Link,
@@ -68,10 +66,15 @@ function Course(){
     return(
         <div style={{
             display: "flex",
-            justifyContent: "space-evenly"
+            justifyContent: "space-evenly",
+            marginTop: "20vh"
         }}>
             <CourseTable course={course}></CourseTable>
+            <div style={{
+                paddingBottom: 40
+            }}>
             <UpdateCard courses={courses} course={course} setCourses={setCourses}></UpdateCard>
+            </div>
         </div>
     )
 }
@@ -95,9 +98,6 @@ function UpdateCard(props){
                             alignItems: 'center',
                         }}
                     >
-                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}
-                                src={"https://media.licdn.com/dms/image/D4D03AQEV_117eQkZLQ/profile-displayphoto-shrink_800_800/0/1686557768279?e=2147483647&v=beta&t=1huYlCYn91aB2b19p9kcT1DkudHGIvk7cHYo6FErxBg"}>
-                        </Avatar>
                         <Typography component="h1" variant="h5">
                             Update Course
                         </Typography>
@@ -179,7 +179,7 @@ function UpdateCard(props){
                                         }
                                     }).then(callback1)}}
                             >
-                                Add Course
+                                UPDATE
                             </Button>
                         </Box>
                     </Box>
@@ -193,15 +193,15 @@ function CourseTable(props){
     const course = props.course;
     return(
         <Card style={{
-            margin: 25,
-            width: 300,
-            minHeight: 200,
+            margin: 30,
+            width: 600,
+            minHeight: 300,
             marginTop: 45
         }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    height="200"
+                    height="280"
                     image={course.imageLink}
                     alt="Course Image"
                 />
