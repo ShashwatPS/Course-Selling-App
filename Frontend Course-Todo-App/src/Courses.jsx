@@ -23,8 +23,9 @@ function Courses(){
 
     return(
         <div style={{
+            paddingLeft: "80px",
             display: "flex",
-            flexWrap: "wrap"
+            flexWrap: "wrap",
         }}>
             {courses.map(course=>{
                 return <Course course={course} setCourses={setCourses}/>
