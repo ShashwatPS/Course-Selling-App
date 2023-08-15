@@ -16,18 +16,11 @@ function LandingPage(){
                 WELCOME TO COURSERA
                 </div>
             </div>
-            <div style={{
-                marginLeft: 190,
-                marginRight:190,
-                textAlign: "center",
-                marginTop: 75,
-            }}>
                 <div className={"text"}>
                 ❝ Welcome to Coursera Embark on a journey of knowledge and growth with our carefully crafted courses.
                 Whether you're looking to enhance your skills, explore new subjects, or embrace lifelong learning, Coursera offers a
                 diverse selection of courses to suit your interests.
                 </div>
-            </div>
                 </Grid>
                 <Grid item lg={5}>
                     <div className={"Image"} justifyContent="center" alignItems="center">
