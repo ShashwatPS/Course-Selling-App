@@ -1,6 +1,5 @@
-body{
-    background-color: #eeeeee;
-}
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 .Image{
     width: 100%;
@@ -10,7 +9,7 @@ body{
 }
 
 .Image img{
-    padding-top: 220px;
+    padding-top: 250px;
     width: 100%;
     height: auto;
 }
@@ -26,11 +25,12 @@ body{
 }
 
 .text{
-    font-family: 'Caveat', cursive;
+    font-family: 'Playfair Display', serif;
     font-size: 22px;
     color: rgba(25,118,211,255);
     margin-bottom: 10px;
     text-align: center;
     width: 50%;
     padding-left: 280px;
+    color: black;
 }

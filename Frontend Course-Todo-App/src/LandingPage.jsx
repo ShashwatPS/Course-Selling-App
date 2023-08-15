@@ -17,9 +17,9 @@ function LandingPage(){
                 </div>
             </div>
                 <div className={"text"}>
-                ❝ Welcome to Coursera Embark on a journey of knowledge and growth with our carefully crafted courses.
+                Welcome to Coursera Embark on a journey of knowledge and growth with our carefully crafted courses.
                 Whether you're looking to enhance your skills, explore new subjects, or embrace lifelong learning, Coursera offers a
-                diverse selection of courses to suit your interests.
+                diverse selection of courses to suit your interests
                 </div>
                 </Grid>
                 <Grid item lg={5}>
